@@ -438,6 +438,8 @@ textarea:not([rows]) {
         justify-content: flex-start;
         position: relative;
         padding-inline: 1rem;
+
+        background-color: var(--clr--darkgrey);
     }
 
     .hamburger-menu-mobile {
@@ -448,12 +450,14 @@ textarea:not([rows]) {
     }
 
     .hamburger-menu-mobile i {
-        color: var(--clr--font-grey-dark);
+        font-size: 2rem;
+
+        color: var(--clr--font-grey-light);
         cursor: pointer;
     }
 
     .hamburger-menu-mobile i:hover {
-        color: var(--clr--font-grey-light);
+        color: var(--clr--font-grey-medium);
     }
 
     .navigation-bar nav {
