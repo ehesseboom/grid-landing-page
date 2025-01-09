@@ -1,0 +1,503 @@
+/* Root */
+:root {
+    /* Font colors */
+    --clr--font-grey-dark: rgb(30, 30, 30);
+    --clr--font-grey-medium: rgb( 60, 60, 60); 
+    --clr--font-grey-light: rgb(100, 100, 100);
+    --clr--font-white: rgb(255, 255, 255);
+    
+    /* Display colors */
+    --clr--red: rgb(100, 45, 45);
+    --clr--darkgrey: rgb(30, 30, 30);
+    --clr--white: rgb(255, 255, 255);
+}
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+ul[role='list'],
+ol[role='list'],
+li {
+  list-style-type: none;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: 'Figtree', sans-serif;
+}
+
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* styling */
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 3.5fr 3.25fr 3.25fr 1fr;
+    grid-template-rows: 1fr 3fr 2fr;
+    grid-template-areas: 
+    "visual-display navigation-bar    navigation-bar  search-button"
+    "visual-display primary-content   primary-content social-media"
+    "visual-display secondary-content other-content   social-media";
+}
+
+.visual-display {
+    grid-area: visual-display;
+
+    background-image: url(assets/images/johan-cruijff-arena-2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--clr--font-white);
+
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.visual-display .company-logo__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.visual-display .company-logo__wrapper i {
+    font-size: clamp(1rem, 3vw + 0.5rem, 1.8rem);
+}
+
+.visual-display .company-logo__wrapper h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    text-align: center;
+
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.8rem);
+    font-weight: 400;
+}
+
+.navigation-bar {
+    grid-area: navigation-bar;
+    background-color: var(--clr--white); 
+    color: var(--clr--font-grey-light);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation-bar nav {
+    height: 100%;
+    width: 100%;
+}
+
+.navigation-bar nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+    height: 100%;
+    width: 100%;
+}
+
+.navigation-bar nav ul li a {
+   text-decoration: none;
+   text-transform: uppercase;
+   letter-spacing: 0.1rem;
+   
+   display: inline-block;
+   font-size: clamp(0.8rem, 1vw + 0.1rem, 1rem);
+   font-weight: 600;
+   
+   transition: all 0.15s ease;
+}
+
+.navigation-bar nav ul li a:hover {
+    color: var(--clr--font-grey-dark);
+ }
+
+.hamburger-menu-mobile {
+    display: none;
+}
+
+.primary-content {
+    grid-area: primary-content;
+    background-color: var(--clr--white);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 2rem;
+    padding: 0 clamp(0.5rem, 3vw + 1rem, 7rem) 2rem clamp(0.5rem, 3vw + 1rem, 7rem);
+}
+
+.primary-content h1 {
+    color: var(--clr--font-grey-dark);
+    font-size: clamp(2rem, 5vw + 1rem, 5rem); 
+}
+
+.primary-content h1 span {
+    background: #FFCC95;
+    background: linear-gradient(to bottom right, #FFCC95 0%, #c2aa7e 100%); 
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.primary-content p {
+    color: var(--clr--font-grey-light);
+    max-width: 100%;
+    column-count: 2;
+    column-gap: 3rem;
+    
+    font-size: clamp(0.8rem, 1vw + 0.1rem, 1rem);
+}
+
+.search-button {
+    grid-area: search-button;
+    background-color: var(--clr--red); 
+    color: var(--clr--font-white); 
+
+    display: grid;
+    place-items: center;
+
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: var(--clr--white);
+    color: var(--clr--font-grey-dark);
+}
+
+.social-media {
+    grid-area: social-media;
+    background-color: var(--clr--darkgrey);
+    color: var(--clr--font-grey-light);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-block: 3rem;
+}
+
+.social-media ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9rem;
+    margin-top: 5rem;
+}
+
+.social-media ul li {
+    transform: rotate(90deg); 
+}
+
+.social-media ul li a {
+    font-size: clamp(0.8rem, 1vw + 0.1rem, 1rem);
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-media i {
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.social-media ul li a:hover, 
+.social-media i:hover {
+    color: var(--clr--font-grey-medium);
+}
+
+.secondary-content {
+    grid-area: secondary-content;
+    background-color: var(--clr--red);
+    color: var(--clr--font-white);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 2rem clamp(1rem, 3vw + 1rem , 5rem);
+    gap: clamp(1rem, 1vw + 0.3rem, 2rem);
+}
+
+.secondary-content h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+
+    font-size: clamp(0.8rem, 1vw + 0.2rem, 1.5rem);
+}
+
+.secondary-content p {
+    font-weight: 300;
+    font-size: clamp(0.8rem, 1vw + 0.1rem, 1rem);
+}
+
+.secondary-content .view-more__wrapper {
+    display: flex;
+    align-items: center;
+
+    margin-top: clamp(1rem, 1vw + 0.3rem, 2rem);
+    gap: 1rem;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: var(--clr--font-white);
+    transition: all 0.3s ease;
+}
+
+.secondary-content .view-more__wrapper:hover {
+    color: burlywood; 
+}
+
+.secondary-content .view-more__wrapper p {
+    font-size: clamp(0.8rem, 1vw + 0.2rem, 1.2rem);
+    font-weight: 600;
+}
+
+.other-content {
+    grid-area: other-content;
+    position: relative;
+    background-color: rgb(100, 45, 45, 0.5);      
+
+    display: grid;
+    place-items: center;
+
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.other-content:hover {
+    background-color: transparent;
+}
+
+.other-content video {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.other-content h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+
+    font-size: clamp(1.5rem, 2vw + 0.3rem, 2rem);
+    color: rgba(255, 255, 255, 0.5);    
+}
+
+.other-content h2:hover {
+    color: var(--clr--font-white);
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr 1fr 1.5fr 0.5fr;
+        grid-template-rows: 1.5fr 0.8fr 3fr 2fr 0.5fr;
+        grid-template-areas: 
+        "visual-display     visual-display      visual-display      visual-display"
+        "navigation-bar     navigation-bar      navigation-bar      search-button"
+        "primary-content    primary-content     primary-content     primary-content"
+        "secondary-content  secondary-content   other-content       other-content"
+        "social-media       social-media        social-media        social-media";
+    }
+
+    .visual-display {
+        background-image: url(assets/images/johan-cruijff-arena-4.jpg);
+        background-size: cover;
+    }
+
+    .primary-content p {
+        font-size: clamp(0.8rem, 1.5vw + 0.1rem, 1rem);
+    }
+
+    .secondary-content h2 {
+        font-size: clamp(0.8rem, 1.5vw + 0.2rem, 1.5rem);
+    }
+
+    .secondary-content p {
+        font-size: clamp(0.8rem, 1.5vw + 0.1rem, 1rem);
+    }
+    
+    .search-button {
+        background-color: var(--clr--white); 
+        color: var(--clr--font-grey-dark); 
+    }
+    
+    .search-button:hover {
+        color: var(--clr--font-grey-light);
+    }
+
+    .social-media {
+        flex-direction: row;
+        justify-content: space-around;
+        padding-block: 1rem;
+
+        position: relative;
+    }
+    
+    .social-media ul {
+        flex-direction: row;
+        gap: 5rem;
+        margin: 0;
+    }
+    
+    .social-media ul li {
+        transform: none; 
+    }
+    
+    .social-media i {
+        font-size: 1rem;
+
+        position: absolute;
+        right: 3rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .container {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: 5rem 10rem 2fr 1fr 1fr 5rem;
+        grid-template-areas: 
+        "navigation-bar"
+        "visual-display"
+        "primary-content"
+        "secondary-content"
+        "other-content"
+        "social-media";
+    }
+    
+    .search-button {
+        display: none;
+    }
+
+    .navigation-bar {
+        justify-content: flex-start;
+        position: relative;
+        padding-inline: 1rem;
+    }
+
+    .hamburger-menu-mobile {
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hamburger-menu-mobile i {
+        color: var(--clr--font-grey-dark);
+        cursor: pointer;
+    }
+
+    .hamburger-menu-mobile i:hover {
+        color: var(--clr--font-grey-light);
+    }
+
+    .navigation-bar nav {
+        display: none;
+    }
+
+    .primary-content {
+        padding-block: 2rem;
+        text-align: center;
+    }
+
+    .primary-content p {
+        column-count: 1;
+        font-size: 1rem;
+    }
+
+    .secondary-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .secondary-content p {
+        font-weight: 300;
+        font-size: 1rem;
+    }
+
+    .social-media {
+        flex-direction: column;
+        justify-content: space-around;
+        padding-block: 1rem;
+        gap: 1rem;
+    }
+    
+    .social-media ul {
+        flex-direction: row;
+        gap: 1rem;
+        margin: 0;
+    }
+    
+    .social-media ul li {
+        transform: none; 
+    }
+    
+    .social-media i {
+        font-size: 0.8rem;
+        position:static;
+    }
+}
